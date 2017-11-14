@@ -223,7 +223,7 @@ class SubaruIsrTask(IsrTask):
 
             if nPc:
                 self.log.info("Recreating Wcs after stripping PC00n00m" % (sensorRef.dataId))
-                ccdExposure.setWcs(afwImage.makeWcs(raw_md))
+                ccdExposure.setWcs(afwGeom.makeSkyWcs(raw_md))
 
         ccdExposure = self.convertIntToFloat(ccdExposure)
         ccd = ccdExposure.getDetector()
